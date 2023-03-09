@@ -12,7 +12,6 @@
 │       └── database
 │           └── param
 │               └── ui_chara_db.prcx
-│               └── ui_chara_db-Replace-for-c00.prcx
 │               └── ui_chara_db-Replace-for-c01.prcx
 │               └── ui_chara_db-Replace-for-c02.prcx
 │               └── ui_chara_db-Replace-for-c04.prcx
