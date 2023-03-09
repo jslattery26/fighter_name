@@ -30,7 +30,7 @@
 ```
 
 ## Requirements
-### *The only requirement is that you have python3.9 installed. If you don't -- i highly recommend pyenv to set it up. Make sure 3.9 is the version that you get when you type `python` into your default shell.
+### *The only requirement is that you have python3.9 installed. If you don't -- i highly recommend [pyenv](https://github.com/pyenv/pyenv) to set it up. Make sure 3.9 is the version that you get when you type `python` into your default shell.
 
 ## Usage
 ### Windows
