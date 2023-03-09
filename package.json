@@ -1,0 +1,40 @@
+{
+  "name": "fighter_name",
+  "private": true,
+  "version": "1.0.0",
+  "description": "generate name files for fighter name arcopolsicisc",
+  "author": "jslattery26",
+  "keywords": [
+    "typescript",
+    "cli",
+    "starter"
+  ],
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "bin": "./dist/cli.js",
+  "files": [
+    "dist/**/*",
+    "!dist/**/*.test.js"
+  ],
+  "scripts": {
+    "dev": "ts-node ./src/cli.ts",
+    "clean": "rimraf ./dist/ ./exec/",
+    "build": "npm run clean && tsc",
+    "test": "npm run build && ava --verbose",
+    "bundle": "npm run build && pkg . --out-dir ./fighter_name/ && cp -R ./src/prc/ ./fighter_name/.prc/"
+  },
+  "devDependencies": {
+    "ava": "^2.2.0",
+    "pkg": "^4.4.0",
+    "rimraf": "^2.6.3",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "@types/inquirer": "^9.0.3",
+    "ts-node": "^8.10.2",
+    "await-exec": "^0.1.2",
+    "commander": "^2.20.0",
+    "inquirer": "^8.2.5",
+    "prompts": "^2.4.2"
+  }
+}
