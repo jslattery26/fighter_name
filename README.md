@@ -33,19 +33,10 @@
 ### *The only requirement is that you have python3.9 installed. If you don't -- i highly recommend [pyenv](https://github.com/pyenv/pyenv) to set it up. Make sure 3.9 is the version that you get when you type `python` into your default shell.
 
 ## Usage
-### Windows
 
 - Extract the folder to any directory.
 
-- Click the .exe, fill out the info - you're done.
-
-### Mac/Linux
-
-- Extract the folder to any directory.
-- `cd` __into__ the fighter_name directory.
-- you'll probably have to `chmod +x fighter_name-macos` or `chmod +x fighter_name-linux`
-- then `./fighter_name-macos` or `./fighter_name-linux`
-- Fill out the info, and the files will be generated.
+- Click the executable file (that matches your os), fill out the info - you're done.
 
 ## Credits
 - [@benhall-7](https://github.com/benhall-7) & [@blu-dev](https://github.com/blu-dev) for parcel, pyprc, and all of the other prc research
