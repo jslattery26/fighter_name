@@ -12,7 +12,6 @@
 │       └── database
 │           └── param
 │               └── ui_chara_db.prcx
-│               └── ui_chara_db-Replace-for-c00.prcx
 │               └── ui_chara_db-Replace-for-c01.prcx
 │               └── ui_chara_db-Replace-for-c02.prcx
 │               └── ui_chara_db-Replace-for-c04.prcx
@@ -31,7 +30,7 @@
 ```
 
 ## Requirements
-### *The only requirement is that you have python3.9 installed. If you don't -- i highly recommend pyenv to set it up. Make sure 3.9 is the version that you get when you type `python` into your default shell.
+### *The only requirement is that you have python3.9 installed. If you don't -- i highly recommend [pyenv](https://github.com/pyenv/pyenv) to set it up. Make sure 3.9 is the version that you get when you type `python` into your default shell.
 
 ## Usage
 ### Windows
@@ -49,5 +48,5 @@
 - Fill out the info, and the files will be generated.
 
 ## Credits
-- [@benhall-7](https://github.com/benhall-7) & [@blue-dev](https://github.com/blue-dev) for parcel, pyprc, and all of the other prc research
+- [@benhall-7](https://github.com/benhall-7) & [@blu-dev](https://github.com/blu-dev) for parcel, pyprc, and all of the other prc research
 - [Watapascul](https://gamebanana.com/members/1780117) on gamebanana for the msg_name template and tutorial
