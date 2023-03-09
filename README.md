@@ -48,5 +48,5 @@
 - Fill out the info, and the files will be generated.
 
 ## Credits
-- [@benhall-7](https://github.com/benhall-7) & [@blue-dev](https://github.com/blue-dev) for parcel, pyprc, and all of the other prc research
+- [@benhall-7](https://github.com/benhall-7) & [@blu-dev](https://github.com/blu-dev) for parcel, pyprc, and all of the other prc research
 - [Watapascul](https://gamebanana.com/members/1780117) on gamebanana for the msg_name template and tutorial
