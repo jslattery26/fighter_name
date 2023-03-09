@@ -38,6 +38,8 @@
 
 - Click the executable file (that matches your os), fill out the info - you're done.
 
+- and cli users can also just run the executable but make sure you `cd` into the directory of the folder that was extracted.
+
 ## Credits
 - [@benhall-7](https://github.com/benhall-7) & [@blu-dev](https://github.com/blu-dev) for parcel, pyprc, and all of the other prc research
 - [Watapascul](https://gamebanana.com/members/1780117) on gamebanana for the msg_name template and tutorial
