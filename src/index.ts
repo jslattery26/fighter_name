@@ -85,8 +85,9 @@ export async function generateFiles() {
                 let osfile = process.platform === "win32" ? 'parcel-win' : process.platform === "darwin" ? 'parcel-mac' : 'parcel-linux'
                 if (i == desired) {
                         await exec(`./.prc/${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db.prcx`)
+                } else {
+                        await exec(`./.prc/${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db-Replace-for-c0${i}.prcx`)
                 }
-                await exec(`./.prc/${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db-Replace-for-c0${i}.prcx`)
                 await exec(`rm ${input}`)
         }
 };
