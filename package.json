@@ -21,7 +21,7 @@
     "clean": "rimraf ./dist/ ./exec/",
     "build": "npm run clean && tsc",
     "test": "npm run build && ava --verbose",
-    "bundle": "npm run build && pkg . --out-dir ./fighter_name/ && cp -R ./src/prc/ ./fighter_name/.prc/"
+    "bundle": "npm run build && pkg . --out-dir ./fighter_name/ && cp -R ./.prc/ ./fighter_name/.prc/"
   },
   "devDependencies": {
     "ava": "^2.2.0",

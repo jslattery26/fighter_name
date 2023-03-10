@@ -10,7 +10,9 @@ export async function getUserInput() {
                 type: 'list',
                 name: 'SmashCharacterName',
                 message: 'Select your fighter',
-                choices: characters,
+                choices: characters.map((e) => {
+                    return { name: `${e.key} (${e.name})`, value: e }
+                }),
                 pageSize: '20'
             },
             {
@@ -21,12 +23,7 @@ export async function getUserInput() {
             {
                 type: 'input',
                 name: 'ModName',
-                message: "Enter the value for ModName (ex: Flavio): ",
-            },
-            {
-                type: 'input',
-                name: 'ModNameUppercase',
-                message: "Enter the ModNameUppercase (ex: FLAVIO): ",
+                message: "Enter the value for ModName (ex: Blario): ",
             },
             {
                 type: 'input',

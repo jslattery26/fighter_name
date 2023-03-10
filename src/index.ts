@@ -9,7 +9,6 @@ export async function generateFiles() {
                 SmashCharacterName,
                 desired,
                 ModName,
-                ModNameUppercase,
                 BoxingRingTitle,
         } = await getUserInput();
         // let SmashCharacterName = 'demon'
@@ -17,7 +16,8 @@ export async function generateFiles() {
         // let ModName = 'Ban'
         // let ModNameUppercase = 'BAN'
         // let BoxingRingTitle = 'Foxs'
-        let charIndex = characters.indexOf(SmashCharacterName)
+        let charIndex = SmashCharacterName.index;
+        console.log(charIndex)
 
         for (let i = 0; i < 8; i++) {
                 const xml0 = `<?xml version=\"1.0\" encoding=\"utf-16\"?>
@@ -29,13 +29,13 @@ export async function generateFiles() {
                 <text>${ModName}</text>
         </entry>
         <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
-                <text>${ModNameUppercase}</text>
+                <text>${ModName.toUpperCase()}</text>
         </entry>
         <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
                 <text>${BoxingRingTitle}</text>
         </entry>
         <entry label=\"nam_chr3_0${i}_${SmashCharacterName}\">
-                <text>${ModNameUppercase}</text>
+                <text>${ModName.toUpperCase()}</text>
         </entry>
 </xmsbt>
     `
@@ -45,7 +45,7 @@ export async function generateFiles() {
                 <text>${ModName}</text>
         </entry>
         <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
-                <text>${ModNameUppercase}</text>
+                <text>${ModName.toUpperCase()}</text>
         </entry>
         <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
                 <text>${BoxingRingTitle}</text>
