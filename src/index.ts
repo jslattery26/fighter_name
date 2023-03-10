@@ -82,12 +82,17 @@ export async function generateFiles() {
         for (let i = 0; i < 8; i++) {
                 let path = 'ui/param/database/'
                 let input = `${path}ui_chara_db-Replace-for-c0${i}.prc`
-                let osfile = process.platform === "win32" ? 'parcel-win' : process.platform === "darwin" ? 'parcel-mac' : 'parcel-linux'
+                let osfile = process.platform === "win32" ? '".prc/parcel.exe"' : process.platform === "darwin" ? './.prc/parcel-mac' : './.prc/parcel-linux'
                 if (i == desired) {
-                        await exec(`./.prc/${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db.prcx`)
+                        await exec(`${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db.prcx`)
                 } else {
-                        await exec(`./.prc/${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db-Replace-for-c0${i}.prcx`)
+                        await exec(`${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db-Replace-for-c0${i}.prcx`)
                 }
-                await exec(`rm ${input}`)
+                if (process.platform == "win32") {
+                        await exec(`DEL "ui\\param\\database\\ui_chara_db-Replace-for-c0${i}.prc"`)
+                } else {
+                        await exec(`rm ${input}`)
+                }
+
         }
 };
