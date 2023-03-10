@@ -34,11 +34,19 @@
 
 ## Usage
 
+### Windows
 - Extract the folder to any directory.
 
-- Click the executable file (that matches your os), fill out the info - you're done.
+- Click the executable file `fighter_name-win.exe`, 
+- 
+- Fill out the info - you're done.
 
-- and cli users can also just run the executable but make sure you `cd` into the directory of the folder that was extracted.
+### Mac/Linux
+- Extract the folder to any directory.
+
+- cd into the fighter_name folder that you extracted (important)
+
+- run `./fighter_name-macos` or `./fighter_name-linux`
 
 ## Credits
 - [@benhall-7](https://github.com/benhall-7) & [@blu-dev](https://github.com/blu-dev) for parcel, pyprc, and all of the other prc research

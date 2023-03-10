@@ -9,7 +9,6 @@ export async function generateFiles() {
                 SmashCharacterName,
                 desired,
                 ModName,
-                ModNameUppercase,
                 BoxingRingTitle,
         } = await getUserInput();
         // let SmashCharacterName = 'demon'
@@ -17,7 +16,8 @@ export async function generateFiles() {
         // let ModName = 'Ban'
         // let ModNameUppercase = 'BAN'
         // let BoxingRingTitle = 'Foxs'
-        let charIndex = characters.indexOf(SmashCharacterName)
+        let charIndex = SmashCharacterName.index;
+        console.log(charIndex)
 
         for (let i = 0; i < 8; i++) {
                 const xml0 = `<?xml version=\"1.0\" encoding=\"utf-16\"?>
@@ -29,13 +29,13 @@ export async function generateFiles() {
                 <text>${ModName}</text>
         </entry>
         <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
-                <text>${ModNameUppercase}</text>
+                <text>${ModName.toUpperCase()}</text>
         </entry>
         <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
                 <text>${BoxingRingTitle}</text>
         </entry>
         <entry label=\"nam_chr3_0${i}_${SmashCharacterName}\">
-                <text>${ModNameUppercase}</text>
+                <text>${ModName.toUpperCase()}</text>
         </entry>
 </xmsbt>
     `
@@ -45,7 +45,7 @@ export async function generateFiles() {
                 <text>${ModName}</text>
         </entry>
         <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
-                <text>${ModNameUppercase}</text>
+                <text>${ModName.toUpperCase()}</text>
         </entry>
         <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
                 <text>${BoxingRingTitle}</text>
@@ -82,12 +82,17 @@ export async function generateFiles() {
         for (let i = 0; i < 8; i++) {
                 let path = 'ui/param/database/'
                 let input = `${path}ui_chara_db-Replace-for-c0${i}.prc`
-                let osfile = process.platform === "win32" ? 'parcel-win' : process.platform === "darwin" ? 'parcel-mac' : 'parcel-linux'
+                let osfile = process.platform === "win32" ? '".prc/parcel.exe"' : process.platform === "darwin" ? './.prc/parcel-mac' : './.prc/parcel-linux'
                 if (i == desired) {
-                        await exec(`./.prc/${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db.prcx`)
+                        await exec(`${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db.prcx`)
                 } else {
-                        await exec(`./.prc/${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db-Replace-for-c0${i}.prcx`)
+                        await exec(`${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db-Replace-for-c0${i}.prcx`)
                 }
-                await exec(`rm ${input}`)
+                if (process.platform == "win32") {
+                        await exec(`DEL "ui\\param\\database\\ui_chara_db-Replace-for-c0${i}.prc"`)
+                } else {
+                        await exec(`rm ${input}`)
+                }
+
         }
 };
