@@ -15,32 +15,32 @@ export async function generateFiles() {
         for (let i = 0; i < 8; i++) {
                 const xml0 = `<?xml version=\"1.0\" encoding=\"utf-16\"?>
 <xmsbt>
-        <entry label=\"nam_chr0_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr0_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName}</text>
         </entry>
-        <entry label=\"nam_chr1_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr1_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName}</text>
         </entry>
-        <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr2_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName.toUpperCase()}</text>
         </entry>
-        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName.key}\">
                 <text>${BoxingRingTitle}</text>
         </entry>
-        <entry label=\"nam_chr3_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr3_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName.toUpperCase()}</text>
         </entry>
 </xmsbt>
     `
                 const xml1 = `<?xml version=\"1.0\" encoding=\"utf-16\"?>
 <xmsbt>
-        <entry label=\"nam_chr1_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr1_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName}</text>
         </entry>
-        <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr2_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName.toUpperCase()}</text>
         </entry>
-        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName.key}\">
                 <text>${BoxingRingTitle}</text>
         </entry>
 </xmsbt>
