@@ -38,7 +38,7 @@
 - Extract the folder to any directory.
 
 - Click the executable file `fighter_name-win.exe`, 
-- 
+
 - Fill out the info - you're done.
 
 ### Mac/Linux
