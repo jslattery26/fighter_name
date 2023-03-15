@@ -15,8 +15,8 @@ for x in range(8):
     table = fighter_param[hash("db_root")]
     hash.load_labels("./.prc/ParamLabels.csv")
     table[fighter_index][hash(f'n0{str(x)}_index')].value = x
-    # replacer = table[fighter_index][hash(f'characall_label_c00')].value
-    # table[fighter_index][hash(f'characall_label_c0{x}')].value = replacer
+    replacer = table[fighter_index][hash(f'characall_label_c00')].value
+    table[fighter_index][hash(f'characall_label_c0{x}')].value = replacer
     fighter_param.save(f'{outDir}ui_chara_db-Replace-for-c0{x}.prc')
     
 # Double check to make sure they're actually changing

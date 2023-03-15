@@ -11,43 +11,36 @@ export async function generateFiles() {
                 ModName,
                 BoxingRingTitle,
         } = await getUserInput();
-        // let SmashCharacterName = 'demon'
-        // let desired = 3
-        // let ModName = 'Ban'
-        // let ModNameUppercase = 'BAN'
-        // let BoxingRingTitle = 'Foxs'
         let charIndex = SmashCharacterName.index;
-        console.log(charIndex)
-
         for (let i = 0; i < 8; i++) {
                 const xml0 = `<?xml version=\"1.0\" encoding=\"utf-16\"?>
 <xmsbt>
-        <entry label=\"nam_chr0_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr0_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName}</text>
         </entry>
-        <entry label=\"nam_chr1_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr1_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName}</text>
         </entry>
-        <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr2_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName.toUpperCase()}</text>
         </entry>
-        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName.key}\">
                 <text>${BoxingRingTitle}</text>
         </entry>
-        <entry label=\"nam_chr3_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr3_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName.toUpperCase()}</text>
         </entry>
 </xmsbt>
     `
                 const xml1 = `<?xml version=\"1.0\" encoding=\"utf-16\"?>
 <xmsbt>
-        <entry label=\"nam_chr1_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr1_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName}</text>
         </entry>
-        <entry label=\"nam_chr2_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_chr2_0${i}_${SmashCharacterName.key}\">
                 <text>${ModName.toUpperCase()}</text>
         </entry>
-        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName}\">
+        <entry label=\"nam_stage_name_0${i}_${SmashCharacterName.key}\">
                 <text>${BoxingRingTitle}</text>
         </entry>
 </xmsbt>
@@ -71,8 +64,6 @@ export async function generateFiles() {
                 if (!fs.existsSync(dir2)) {
                         fs.mkdirSync(dir2, { recursive: true })
                 }
-                // console.log(xml)
-                // fs.writeFileSync(`ui/message/${filename}`, xml, { encoding: 'utf16le' });
                 const utf16buffer = Buffer.from(`\ufeff${xml}`, 'utf16le');
                 fs.writeFileSync(`ui/message/${filename}`, utf16buffer);
 
@@ -82,17 +73,23 @@ export async function generateFiles() {
         for (let i = 0; i < 8; i++) {
                 let path = 'ui/param/database/'
                 let input = `${path}ui_chara_db-Replace-for-c0${i}.prc`
-                let osfile = process.platform === "win32" ? '".prc/parcel.exe"' : process.platform === "darwin" ? './.prc/parcel-mac' : './.prc/parcel-linux'
-                if (i == desired) {
-                        await exec(`${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db.prcx`)
-                } else {
-                        await exec(`${osfile} diff ./.prc/ui_chara_db.prc ${input} ${path}ui_chara_db-Replace-for-c0${i}.prcx`)
-                }
+                let baseFile = 'ui_chara_db.prcx'
+                let replaceFile = `ui_chara_db-Replace-for-c0${i}.prcx`
+                let osfile = process.platform === "win32" ? '' : process.platform === "darwin" ? './.prc/parcel-mac' : './.prc/parcel-linux'
+
                 if (process.platform == "win32") {
+                        await exec(`".prc/parcel.exe" diff ./.prc/ui_chara_db.prc ${input} ${path}${i == desired ? baseFile : replaceFile}`)
                         await exec(`DEL "ui\\param\\database\\ui_chara_db-Replace-for-c0${i}.prc"`)
-                } else {
+                }
+                if (process.platform == "darwin") {
+                        await exec(`chmod +x ./.prc/parcel-mac`)
+                        await exec(`./.prc/parcel-mac diff ./.prc/ui_chara_db.prc ${input} ${path}${i == desired ? baseFile : replaceFile}`)
                         await exec(`rm ${input}`)
                 }
-
+                if (process.platform == "linux") {
+                        await exec(`chmod +x ./.prc/parcel-linux`)
+                        await exec(`./.prc/parcel-linux diff ./.prc/ui_chara_db.prc ${input} ${path}${i == desired ? baseFile : replaceFile}`)
+                        await exec(`rm ${input}`)
+                }
         }
 };
