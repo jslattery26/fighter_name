@@ -21,7 +21,7 @@
     "clean": "rimraf ./dist/ ./exec/ ./fighter_name/",
     "build": "npm run clean && tsc",
     "test": "npm run build && ava --verbose",
-    "bundle": "npm run build && pkg . --out-dir ./fighter_name/ && codesign -vvvv --force --sign $(grep CODE_SIGN .env | cut -d '=' -f2) ./fighter_name/fighter_name-macos && cp -R ./src/prc/ ./fighter_name/.prc/ && zip -r fighter_name.zip ./fighter_name && rm -rf ./fighter_name"
+    "bundle": "npm run build && pkg . --out-dir ./fighter_name/ && codesign -vvvv --force --sign $(grep CODE_SIGN .env | cut -d '=' -f2) ./fighter_name/fighter_name-macos && mkdir ./fighter_name/.prc/ && cp -R ./.prc/ ./fighter_name/.prc/ && zip -r fighter_name.zip ./fighter_name && rm -rf ./fighter_name"
   },
   "devDependencies": {
     "ava": "^2.2.0",
